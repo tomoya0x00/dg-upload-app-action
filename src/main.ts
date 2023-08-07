@@ -125,6 +125,10 @@ import { UploadResponse } from './deploygate/upload_response';
       }
     }
   } catch (error) {
-    core.setFailed(error.message);
+    if (error instanceof Error) {
+      core.setFailed(error.message);
+    } else {
+      core.setFailed('An unknown error occurred');
+    }
   }
 })();

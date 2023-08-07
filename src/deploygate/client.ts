@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 import FormData from 'form-data';
 import fs from 'fs';
 
@@ -61,7 +61,7 @@ async function normalizeResponse<T>(
       return response.data;
     }
   } catch (e) {
-    if (e.response && e.response.data) {
+    if (e instanceof AxiosError && e.response && e.response.data) {
       return (e.response.data as unknown) as ErrorResponse;
     }
 
