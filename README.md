@@ -28,7 +28,7 @@ on:
 Add this action to steps.
 
 ```
-uses: jmatsu/dg-upload-app-action@<version>
+uses: tomoya0x00/dg-upload-app-action@<version>
   with:
     app_owner_name: <your DeployGate account/organization name>
     api_token: ${{ secrets.DEPLOYGATE_API_TOKEN }} # for example
